@@ -8,12 +8,11 @@ public:
 	float anchorL;
 	float k;
 	float damping;
-	std::string test;
 
 	sf::RectangleShape rep;
 	int iH1;
 	int iH2;
 
-	Spring(float a, float kc, float d, std::string t);
+	Spring(float a, float kc, float d, sf::Vector2f startP);
 	Spring();
 };

@@ -23,3 +23,16 @@ Head* mouseHeadInteract(sf::RenderWindow& window,  std::vector<Head> &h) {
 
 	return nullptr;
 }
+
+
+float pythag(sf::Vector2f v) {
+	return sqrt(v.x * v.x + v.y * v.y);
+}
+
+void headStep(std::vector<Head>& h, std::vector<Spring> &s) {
+	for (auto iter = ++h.begin(); iter != h.end(); iter++)iter->step(s);
+}
+
+sf::Vector2f operator*(sf::Vector2f v, sf::Vector2f v1) {
+	return sf::Vector2f(v.x * v1.x, v.y * v1.y);
+}

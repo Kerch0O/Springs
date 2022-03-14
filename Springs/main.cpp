@@ -17,7 +17,7 @@ int main() {
 	heads.push_back(Head(startingPos));
 
 	for (int i = 0; i < headNum - 1; i++) {
-		springs.push_back(Spring(anchorLengthG, 0.001f, 0.99f, std::to_string(i)));
+		springs.push_back(Spring(anchorLengthG, 0.001f, 0.99f, sf::Vector2f(conv(heads[i].rep.getPosition()))));
 		heads.push_back(Head(springs.size() - 1, sf::Vector2f(startingPos.x, startingPos.y - (i + 1) * anchorLengthG)));
 
 		springs[springs.size() - 1].iH1 = i;
@@ -25,6 +25,7 @@ int main() {
 
 		heads[i].iS2 = i;
 	}
+
 
 	//Mouse interactions
 	bool pressed = false;
@@ -45,12 +46,18 @@ int main() {
 				pressed = false;
 				headClicked = nullptr;
 				break;
+			case sf::Event::TextEntered:
+				if (evnt.text.unicode == 's') {
+					headStep(heads, springs);
+				}
 			}
 		}
 
 		if (pressed && headClicked != nullptr && headClicked->iS1 != -1) {
 			headClicked->rep.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
 		}
+
+		headStep(heads, springs);
 
 		window.clear(sf::Color::White);
 

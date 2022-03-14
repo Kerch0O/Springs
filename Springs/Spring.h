@@ -8,12 +8,12 @@ public:
 	float anchorL;
 	float k;
 	float damping;
+	std::string test;
 
 	sf::RectangleShape rep;
-	std::shared_ptr<Head> h1;
-	std::shared_ptr<Head> h2;
+	int iH1;
+	int iH2;
 
-
-	Spring(float a, float kc, float d);
+	Spring(float a, float kc, float d, std::string t);
 	Spring();
 };

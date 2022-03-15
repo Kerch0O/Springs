@@ -7,7 +7,7 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(1200, 900), "Springs", sf::Style::Default);
 
 	int headNum = 6; // >1
-	float anchorLengthG = 10.0f;
+	float anchorLengthG = 40.0f;
 	float damping = 0.991f;
 	float springC = 0.002f;
 
@@ -60,12 +60,12 @@ int main() {
 		}
 
 		headStep(heads, springs);
+		springRectRF(heads, springs);
 
 		window.clear(sf::Color::White);
 
-		for (auto& x : heads) {
-			window.draw(x.rep);
-		}
+		for (auto& x : heads)window.draw(x.rep);
+		for (auto& x : springs)window.draw(x.rep);
 
 		window.display();
 	}

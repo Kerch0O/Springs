@@ -15,4 +15,6 @@ public:
 
 	Spring(float a, float kc, float d, sf::Vector2f startP);
 	Spring();
+
+	void rectRefresh(std::vector<Head>& h);
 };

@@ -12,3 +12,4 @@ void vCout(sf::Vector2f v, std::string s);
 Head* mouseHeadInteract(sf::RenderWindow& window, std::vector<Head> &h);
 float pythag(sf::Vector2f v);
 void headStep(std::vector<Head>& h, std::vector<Spring> &s);
+void springRectRF(std::vector<Head>& h, std::vector<Spring>& s);

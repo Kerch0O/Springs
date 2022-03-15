@@ -33,6 +33,10 @@ void headStep(std::vector<Head>& h, std::vector<Spring> &s) {
 	for (auto iter = ++h.begin(); iter != h.end(); iter++)iter->step(s, h);
 }
 
+void springRectRF(std::vector<Head>& h, std::vector<Spring>& s) {
+	for (auto iter = s.begin(); iter != s.end(); iter++)iter->rectRefresh(h);
+}
+
 sf::Vector2f operator*(sf::Vector2f v, sf::Vector2f v1) {
 	return sf::Vector2f(v.x * v1.x, v.y * v1.y);
 }

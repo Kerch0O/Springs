@@ -30,7 +30,7 @@ float pythag(sf::Vector2f v) {
 }
 
 void headStep(std::vector<Head>& h, std::vector<Spring> &s) {
-	for (auto iter = ++h.begin(); iter != h.end(); iter++)iter->step(s);
+	for (auto iter = ++h.begin(); iter != h.end(); iter++)iter->step(s, h);
 }
 
 sf::Vector2f operator*(sf::Vector2f v, sf::Vector2f v1) {

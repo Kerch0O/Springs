@@ -6,8 +6,10 @@ int main() {
 	//Window
 	sf::RenderWindow window(sf::VideoMode(1200, 900), "Springs", sf::Style::Default);
 
-	float headNum = 2; // >1
-	float anchorLengthG = 100.0f;
+	int headNum = 6; // >1
+	float anchorLengthG = 10.0f;
+	float damping = 0.991f;
+	float springC = 0.002f;
 
 	sf::Vector2f startingPos(600.0f, 700.0f);
 
@@ -17,7 +19,7 @@ int main() {
 	heads.push_back(Head(startingPos));
 
 	for (int i = 0; i < headNum - 1; i++) {
-		springs.push_back(Spring(anchorLengthG, 0.001f, 0.99f, sf::Vector2f(conv(heads[i].rep.getPosition()))));
+		springs.push_back(Spring(anchorLengthG, springC, damping, sf::Vector2f(conv(heads[i].rep.getPosition()))));
 		heads.push_back(Head(springs.size() - 1, sf::Vector2f(startingPos.x, startingPos.y - (i + 1) * anchorLengthG)));
 
 		springs[springs.size() - 1].iH1 = i;

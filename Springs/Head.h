@@ -14,5 +14,5 @@ public:
 
 	Head(int springIndex, sf::Vector2f pos);
 	Head(sf::Vector2f pos);
-	void step(std::vector<Spring> &s);
+	void step(std::vector<Spring> &s, std::vector<Head> &h);
 };
